@@ -77,7 +77,7 @@ class MageIdentity:
 
         print(f"\n✦ The arcane threads have woven your identity ✦")
         print(f"  You are now known as {mage.name} {mage.title}")
-        print(f"  Element: {mage.element} | Familiar: {mage.familiar}")
+        print(f"  Element: {mage.element} | Familiar:  {mage.familiar}")
 
         return mage
 
