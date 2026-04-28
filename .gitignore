@@ -1,0 +1,34 @@
+# SoulScript.exe - Git Ignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# User data files (keep templates, ignore runtime data)
+data/spellbook.csv
+data/mage_profile.json
+
+# Test artifacts
+test_*.py
+*_test.py

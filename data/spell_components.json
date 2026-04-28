@@ -1,0 +1,201 @@
+{
+    "prefixes": {
+        "Air": ["Aero", "Zephyr", "Ventus", "Aethon", "Breeze", "Gale", "Mistral", "Sirocco"],
+        "Light": ["Lumi", "Radi", "Aurora", "Solace", "Lucent", "Prism", "Dawn", "Astra"],
+        "Fire": ["Pyro", "Ignis", "Ember", "Flare", "Cinder", "Blaze", "Scorch", "Vulcan"],
+        "Water": ["Aqua", "Tidal", "Nereid", "Fathom", "Coral", "Torrent", "Riptide", "Abyssal"],
+        "Earth": ["Terra", "Gaia", "Stone", "Boulder", "Quake", "Root", "Amber", "Granite"],
+        "Shadow": ["Umbral", "Shade", "Nyx", "Phantom", "Dusk", "Obsidian", "Twilight", "Veil"],
+        "Void": ["Null", "Nihil", "Abyss", "Oblivion", "Entropy", "Vacuum", "Chasm", "Zero"],
+        "Lightning": ["Volt", "Thunder", "Storm", "Fulgor", "Spark", "Raiden", "Static", "Tempest"]
+    },
+    "roots": {
+        "low": ["Whisper", "Shimmer", "Glimmer", "Wisp", "Trace", "Hint", "Murmur", "Sigh"],
+        "mid": ["Pulse", "Surge", "Wave", "Bloom", "Flare", "Echo", "Vex", "Drift"],
+        "high": ["Fury", "Storm", "Maelstrom", "Cataclysm", "Tempest", "Rage", "Apex", "Ruin"]
+    },
+    "suffixes": {
+        "Air": ["Breeze", "Gust", "Soar", "Drift", "Current", "Zephyr", "Flight", "Cyclone"],
+        "Light": ["Bloom", "Veil", "Ray", "Halo", "Gleam", "Beacon", "Aura", "Grace"],
+        "Fire": ["Inferno", "Blaze", "Ash", "Ember", "Scorch", "Eruption", "Pyre", "Furnace"],
+        "Water": ["Tide", "Depth", "Cascade", "Flood", "Mist", "Wave", "Ripple", "Whirlpool"],
+        "Earth": ["Fortress", "Root", "Wall", "Garden", "Throne", "Pillar", "Bastion", "Cradle"],
+        "Shadow": ["Shroud", "Cloak", "Step", "Whisper", "Mirror", "Labyrinth", "Wraith", "Hollow"],
+        "Void": ["Rift", "Collapse", "Devour", "End", "Eclipse", "Oblivion", "Fracture", "Wound"],
+        "Lightning": ["Strike", "Bolt", "Crash", "Surge", "Arc", "Flash", "Rend", "Lance"]
+    },
+    "incantation_words": {
+        "Air": [
+            "ventis", "aether", "zephyrus", "nubes", "altum", "volatus", "spiritus",
+            "levitas", "aura", "flatus", "celeris", "nimbis", "altiora", "volito"
+        ],
+        "Light": [
+            "luminis", "radiantis", "aurora", "solis", "stellae", "claritas", "splendor",
+            "lucerna", "fulgidus", "nitidus", "candor", "illuminata", "divinus", "sanctus"
+        ],
+        "Fire": [
+            "ignis", "flammis", "cineris", "ardens", "caloris", "vorax", "inferni",
+            "pyras", "comburo", "ustio", "incendium", "flagro", "ardua", "caminus"
+        ],
+        "Water": [
+            "aqua", "fluctus", "profundis", "unda", "mare", "torrens", "gurgitis",
+            "flumen", "nimbus", "stillae", "abyssi", "mergio", "liquida", "pelagus"
+        ],
+        "Earth": [
+            "terra", "petrae", "radicis", "montis", "silva", "saxum", "fundamentum",
+            "telluris", "robustum", "antiquus", "caverna", "solidus", "vestigium", "lapis"
+        ],
+        "Shadow": [
+            "umbrae", "noctis", "obscurum", "velamen", "fallacis", "nebula", "larva",
+            "tenebris", "mysticus", "occultus", "chao", "engima", "phantasma", "caligo"
+        ],
+        "Void": [
+            "vacui", "nihili", "abyssi", "entropia", "fractura", "nullius", "vacuus",
+            "inanis", "perditio", "consumptus", "devoratus", "infinitum", "solitudo", "vanitas"
+        ],
+        "Lightning": [
+            "fulguris", "tonitrus", "electricus", "tempestatis", "fulmini", "scintilla",
+            "raudi", "coruscus", "impetus", "celeritas", "stridor", "fragor", "caelestis", "supernus"
+        ]
+    },
+    "effect_templates": {
+        "Air": [
+            "Channels the boundless sky, {effect}",
+            "Summons a wind that {effect}",
+            "Unleashes an aerial current that {effect}",
+            "Calls upon the breath of the world to {effect}",
+            "Stirs the atmosphere until {effect}"
+        ],
+        "Light": [
+            "Illuminates the darkness within, {effect}",
+            "Radiates a warm glow that {effect}",
+            "Channels the dawn's first light to {effect}",
+            "Conjures a luminous aura that {effect}",
+            "Reveals hidden truths and {effect}"
+        ],
+        "Fire": [
+            "Channels the inner furnace, {effect}",
+            "Ignites a blazing force that {effect}",
+            "Unleashes molten fury that {effect}",
+            "Summons embers from the deep that {effect}",
+            "Conjures a wall of flame that {effect}"
+        ],
+        "Water": [
+            "Channels the ocean's depths, {effect}",
+            "Summons a rushing tide that {effect}",
+            "Unleashes a cascade that {effect}",
+            "Calls upon the deep currents to {effect}",
+            "Conjures a whirlpool that {effect}"
+        ],
+        "Earth": [
+            "Channels the bedrock's strength, {effect}",
+            "Summons roots from the deep that {effect}",
+            "Unleashes a seismic force that {effect}",
+            "Calls upon the ancient stone to {effect}",
+            "Conjures an earthen barrier that {effect}"
+        ],
+        "Shadow": [
+            "Channels the space between light, {effect}",
+            "Summons a veil of darkness that {effect}",
+            "Unleashes a phantom force that {effect}",
+            "Calls upon the twilight to {effect}",
+            "Conjures a shroud that {effect}"
+        ],
+        "Void": [
+            "Channels the space between stars, {effect}",
+            "Summons the vast emptiness that {effect}",
+            "Unleashes a gravitational void that {effect}",
+            "Calls upon the nothingness to {effect}",
+            "Conjures a rift in reality that {effect}"
+        ],
+        "Lightning": [
+            "Channels the storm's fury, {effect}",
+            "Summons a bolt of pure energy that {effect}",
+            "Unleashes an electric surge that {effect}",
+            "Calls upon the thunderhead to {effect}",
+            "Conjures a crackling field that {effect}"
+        ]
+    },
+    "effect_actions": {
+        "low": [
+            "gently caresses the target",
+            "creates a faint shimmer in the air",
+            "whispers ancient secrets",
+            "leaves a trace of arcane residue",
+            "produces a subtle vibration",
+            "causes a momentary flicker"
+        ],
+        "mid": [
+            "surrounds the caster with protective energy",
+            "strikes with focused precision",
+            "creates a swirling vortex of power",
+            "sends ripples through the arcane weave",
+            "amplifies the caster's presence",
+            "reshapes the immediate surroundings"
+        ],
+        "high": [
+            "unleashes devastating force upon all nearby",
+            "tears at the fabric of reality itself",
+            "creates a lasting transformation",
+            "overwhelms everything in its path",
+            "resonates across multiple planes of existence",
+            "permanently alters the flow of magic"
+        ]
+    },
+    "durations": {
+        "low": [
+            "a fleeting moment",
+            "a single breath",
+            "the blink of an eye",
+            "a heartbeat",
+            "an instant"
+        ],
+        "mid": [
+            "three turns of the hourglass",
+            "until the sun shifts",
+            "a handful of heartbeats",
+            "until the wind changes",
+            "the span of a song"
+        ],
+        "high": [
+            "until the next full moon",
+            "from this day forward",
+            "across the turning of ages",
+            "until the stars realign",
+            "for a cycle of the seasons",
+            "eternally bound"
+        ]
+    },
+    "mage_titles": [
+        "the Wanderer",
+        "of the Crimson Veil",
+        "the Unbroken",
+        "of the Eternal Flame",
+        "the Silent",
+        "of the Forgotten Shore",
+        "the Dreamweaver",
+        "of the Ashen Throne",
+        "the Resilient",
+        "of the Silver Thread",
+        "the Arcane",
+        "of the Whispering Depths",
+        "the Luminary",
+        "of the Iron Will",
+        "the Enigma",
+        "of the Starfall",
+        "the Undaunted",
+        "of the Verdant Path",
+        "the Twilight Sage",
+        "of the Crystal Spire"
+    ],
+    "familiars": {
+        "Air": ["Eagle", "Hummingbird", "Cloud Fox", "Wind Serpent", "Sky Whale"],
+        "Light": ["Phoenix", "Radiant Stag", "Golden Moth", "Prism Butterfly", "Dawn Owl"],
+        "Fire": ["Salamander", "Fire Drake", "Ember Cat", "Magma Hound", "Cinder Raven"],
+        "Water": ["Dolphin", "Jellyfish Spirit", "Coral Snake", "Tide Turtle", "Frost Kraken"],
+        "Earth": ["Tortoise", "Crystal Mole", "Moss Bear", "Stone Golem", "Root Deer"],
+        "Shadow": ["Black Cat", "Shadow Raven", "Twilight Fox", "Phantom Wolf", "Dusk Moth"],
+        "Void": ["Void Serpent", "Null Wraith", "Abyssal Eye", "Entropy Spider", "Dark Mirror"],
+        "Lightning": ["Thunder Hawk", "Storm Wolf", "Electric Eel Spirit", "Spark Fox", "Lightning Beetle"]
+    }
+}

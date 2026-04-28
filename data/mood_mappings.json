@@ -1,0 +1,69 @@
+{
+    "mood_categories": {
+        "Joyful": {
+            "element": "Air",
+            "example_moods": ["happy", "excited", "euphoric", "grateful"],
+            "description": "A lightness of spirit that lifts the soul skyward",
+            "spell_flavor": "breezy, uplifting, soaring, freedom"
+        },
+        "Melancholy": {
+            "element": "Light",
+            "example_moods": ["sad", "lonely", "nostalgic", "grieving"],
+            "description": "A tender ache that illuminates what truly matters",
+            "spell_flavor": "radiant, bittersweet, luminous, revelation"
+        },
+        "Angry": {
+            "element": "Fire",
+            "example_moods": ["furious", "irritated", "frustrated", "resentful"],
+            "description": "A burning intensity that demands transformation",
+            "spell_flavor": "destructive, blazing, inferno, fury"
+        },
+        "Anxious": {
+            "element": "Water",
+            "example_moods": ["worried", "nervous", "overwhelmed", "restless"],
+            "description": "A restless tide of thoughts that ebbs and flows",
+            "spell_flavor": "flowing, tidal, turbulent, depth"
+        },
+        "Calm": {
+            "element": "Earth",
+            "example_moods": ["peaceful", "serene", "content", "relaxed", "indifferent"],
+            "description": "A deep stillness rooted in the bedrock of being",
+            "spell_flavor": "grounding, stable, growth, fortress"
+        },
+        "Mysterious": {
+            "element": "Shadow",
+            "example_moods": ["curious", "confused", "dreamy", "wondering"],
+            "description": "An enigmatic whisper from the edges of understanding",
+            "spell_flavor": "shrouded, elusive, whispering, twilight"
+        },
+        "Dark": {
+            "element": "Void",
+            "example_moods": ["hopeless", "bitter", "vengeful", "despairing"],
+            "description": "The vast emptiness between the stars where even light surrenders",
+            "spell_flavor": "consuming, vast, empty, eclipse, oblivion"
+        },
+        "Empowered": {
+            "element": "Lightning",
+            "example_moods": ["confident", "determined", "passionate", "bold"],
+            "description": "An electric surge of willpower that crackles with purpose",
+            "spell_flavor": "striking, charged, thunder, storm"
+        }
+    },
+    "intensity_labels": {
+        "1": "Minor Cantrip",
+        "2": "Minor Cantrip",
+        "3": "Minor Cantrip",
+        "4": "Standard Spell",
+        "5": "Standard Spell",
+        "6": "Standard Spell",
+        "7": "Powerful Incantation",
+        "8": "Powerful Incantation",
+        "9": "Powerful Incantation",
+        "10": "Arcane Masterwork"
+    },
+    "intensity_descriptions": {
+        "low": ["faint", "whisper", "shimmer", "glimmer", "wisp", "trace", "hint"],
+        "mid": ["pulse", "surge", "wave", "bloom", "flare", "echo", "vex"],
+        "high": ["fury", "storm", "maelstrom", "cataclysm", "tempest", "rage", "apex"]
+    }
+}
