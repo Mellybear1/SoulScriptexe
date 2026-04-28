@@ -6,6 +6,7 @@ and scrollable panels in a dark-themed window.
 """
 
 import os
+import random
 import sys
 import tkinter as tk
 from tkinter import ttk, messagebox, simpledialog
@@ -66,14 +67,25 @@ class SoulScriptGUI:
         self.mood_tracker = MoodTracker()
         self.analyzer = DataAnalyzer(self.spellbook)
 
-        # Load or create mage
+        # Build the UI first so dialogs have a parent window
+        self._build_ui()
+
+        # Load or create mage (using GUI dialog instead of terminal input)
         self.mage = MageIdentity.load()
         if self.mage is None:
-            self.mage = MageIdentity.create_new()
+            self.mage = self._create_mage_gui()
+            if self.mage is None:
+                # User cancelled — cannot proceed without a mage
+                self.root.destroy()
+                return
             self.mage.save()
+            self._display(
+                f"\n  ✦ The arcane threads have woven your identity ✦\n"
+                f"  You are now known as {self.mage.name} {self.mage.title}\n"
+                f"  Element: {self.mage.element} | Familiar: {self.mage.familiar}\n",
+                self.FG_AMBER,
+            )
 
-        # Build the UI
-        self._build_ui()
         self._refresh_status()
 
     def _build_ui(self):
@@ -142,6 +154,49 @@ class SoulScriptGUI:
             btn.pack(side="left", padx=3, expand=True, fill="x")
             btn.bind("<Enter>", lambda e, b=btn: b.configure(bg=self.BG_BUTTON_HOVER))
             btn.bind("<Leave>", lambda e, b=btn: b.configure(bg=self.BG_BUTTON))
+
+    # ── GUI Mage Creation ──────────────────────────────────
+
+    def _create_mage_gui(self):
+        """Create a new mage identity using Tkinter dialogs instead of terminal input.
+
+        Returns:
+            MageIdentity or None: The newly created mage, or None if cancelled.
+        """
+        name = simpledialog.askstring(
+            "Mage Identity Initialization",
+            "The arcane threads gather before you...\n\nSpeak your name, young mage:",
+            parent=self.root,
+        )
+        if name is None:
+            return None  # User cancelled
+        name = name.strip()
+        if not name:
+            name = "Anonymous Mage"
+
+        # Load components for random assignment
+        components = MageIdentity._load_components()
+
+        # Assign random title
+        title = random.choice(components["mage_titles"])
+
+        # Assign random element
+        elements = list(components["familiars"].keys())
+        element = random.choice(elements)
+
+        # Assign familiar matching the element
+        familiar = random.choice(components["familiars"][element])
+
+        # Record creation date
+        creation_date = datetime.now().strftime("%Y-%m-%d")
+
+        return MageIdentity(
+            name=name,
+            title=title,
+            element=element,
+            familiar=familiar,
+            creation_date=creation_date,
+        )
 
     # ── Text Output Helpers ────────────────────────────────
 
@@ -482,7 +537,10 @@ class SoulScriptGUI:
             profile_path = MageIdentity.PROFILE_PATH
             if os.path.exists(profile_path):
                 os.remove(profile_path)
-            self.mage = MageIdentity.create_new()
+            self.mage = self._create_mage_gui()
+            if self.mage is None:
+                # User cancelled — restore old profile is not possible, just return
+                return
             self.mage.save()
             self._refresh_status()
             self._display("\n  ✦ Mage profile reset successfully. ✦\n", self.FG_AMBER)
@@ -501,6 +559,8 @@ class SoulScriptGUI:
 
     def run(self):
         """Start the GUI application main loop."""
+        if self.mage is None:
+            return  # User cancelled mage creation; window already destroyed
         # Show welcome message
         self._display(
             f"\n  ✦ SoulScript.exe ✦\n\n"
