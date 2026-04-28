@@ -35,17 +35,17 @@ class SoulScriptGUI:
         mood_tracker (MoodTracker): The mood selection handler.
     """
 
-    # ── Color Scheme ───────────────────────────────────────
-    BG_DARK = "#0a0a0e"
-    BG_PANEL = "#12121a"
-    BG_BUTTON = "#1a1a2e"
-    BG_BUTTON_HOVER = "#2a2a4e"
-    FG_GREEN = "#00ff41"
-    FG_AMBER = "#ffb000"
-    FG_CYAN = "#00d4ff"
-    FG_RED = "#ff4444"
-    FG_WHITE = "#e0e0e0"
-    FG_DIM = "#666680"
+    # ── Color Scheme (ocean/arcane palette) ────────────────
+    BG_DARK = "#0e2a47"
+    BG_PANEL = "#1a3a5c"
+    BG_BUTTON = "#415a75"
+    BG_BUTTON_HOVER = "#7cace1"
+    FG_GREEN = "#e7ffff"
+    FG_AMBER = "#fee4a7"
+    FG_CYAN = "#7cace1"
+    FG_RED = "#fccbcd"
+    FG_WHITE = "#ffffff"
+    FG_DIM = "#bfe2ec"
     FONT_MONO = ("Consolas", 11)
     FONT_MONO_BOLD = ("Consolas", 11, "bold")
     FONT_TITLE = ("Consolas", 16, "bold")
