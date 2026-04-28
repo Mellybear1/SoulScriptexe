@@ -56,10 +56,8 @@ class SoulScriptGUI:
         """Initialize the GUI application and all core modules."""
         self.root = tk.Tk()
         self.root.title("SoulScript.exe")
-        self.root.geometry("800x650")
         self.root.configure(bg=self.BG_DARK)
         self.root.resizable(True, True)
-        self.root.minsize(700, 550)
 
         # Core modules
         self.mage = None
@@ -70,6 +68,16 @@ class SoulScriptGUI:
 
         # Build the UI first so dialogs have a parent window
         self._build_ui()
+
+        # Auto-size window to fit content, then set minimum bounds
+        self.root.update_idletasks()
+        req_w = self.root.winfo_reqwidth()
+        req_h = self.root.winfo_reqheight()
+        width = min(max(req_w, 750), 950)
+        height = min(max(req_h, 550), 750)
+        self.root.geometry(f"{width}x{height}")
+        self.root.minsize(700, 500)
+        self._center_window(self.root)
 
         # Load or create mage (using GUI dialog instead of terminal input)
         self.mage = MageIdentity.load()
@@ -170,6 +178,39 @@ class SoulScriptGUI:
             btn.pack(side="left", padx=3, expand=True, fill="x")
             btn.bind("<Enter>", lambda e, b=btn: b.configure(bg=self.BG_BUTTON_HOVER))
             btn.bind("<Leave>", lambda e, b=btn: b.configure(bg=self.BG_BUTTON))
+
+    # ── Window Centering Helpers ───────────────────────────
+
+    def _center_window(self, window):
+        """Center a window on the screen.
+
+        Args:
+            window (tk.Tk | tk.Toplevel): The window to center.
+        """
+        window.update_idletasks()
+        w = window.winfo_width()
+        h = window.winfo_height()
+        x = (window.winfo_screenwidth() - w) // 2
+        y = (window.winfo_screenheight() - h) // 2
+        window.geometry(f"+{x}+{y}")
+
+    def _center_on_root(self, dialog):
+        """Center a dialog on top of the main root window.
+
+        Args:
+            dialog (tk.Toplevel): The dialog to center.
+        """
+        dialog.update_idletasks()
+        dw = dialog.winfo_reqwidth()
+        dh = dialog.winfo_reqheight()
+        self.root.update_idletasks()
+        rx = self.root.winfo_x()
+        ry = self.root.winfo_y()
+        rw = self.root.winfo_width()
+        rh = self.root.winfo_height()
+        x = rx + (rw - dw) // 2
+        y = ry + (rh - dh) // 2
+        dialog.geometry(f"+{x}+{y}")
 
     # ── GUI Mage Creation ──────────────────────────────────
 
@@ -289,6 +330,7 @@ class SoulScriptGUI:
         dialog.configure(bg=self.BG_DARK)
         dialog.transient(self.root)
         dialog.grab_set()
+        self._center_on_root(dialog)
 
         # Title
         tk.Label(
@@ -428,6 +470,7 @@ class SoulScriptGUI:
         dialog.configure(bg=self.BG_DARK)
         dialog.transient(self.root)
         dialog.grab_set()
+        self._center_on_root(dialog)
 
         tk.Label(
             dialog, text="Analyze Emotional Trends",
@@ -513,6 +556,7 @@ class SoulScriptGUI:
         dialog.configure(bg=self.BG_DARK)
         dialog.transient(self.root)
         dialog.grab_set()
+        self._center_on_root(dialog)
 
         tk.Label(
             dialog, text="⚙ Settings",
@@ -549,7 +593,7 @@ class SoulScriptGUI:
 
     def _reset_mage(self):
         """Reset the mage profile after confirmation."""
-        if messagebox.askyesno("Confirm Reset", "Delete your mage identity and create a new one?"):
+        if messagebox.askyesno("Confirm Reset", "Delete your mage identity and create a new one?", parent=self.root):
             profile_path = MageIdentity.PROFILE_PATH
             if os.path.exists(profile_path):
                 os.remove(profile_path)
@@ -563,7 +607,7 @@ class SoulScriptGUI:
 
     def _clear_spellbook(self):
         """Clear the spellbook after confirmation."""
-        if messagebox.askyesno("Confirm Clear", "Delete ALL spellbook entries permanently?"):
+        if messagebox.askyesno("Confirm Clear", "Delete ALL spellbook entries permanently?", parent=self.root):
             if os.path.exists(self.spellbook.filepath):
                 os.remove(self.spellbook.filepath)
             self.spellbook._ensure_file_exists()
