@@ -50,6 +50,7 @@ class SoulScriptGUI:
     FONT_MONO_BOLD = ("Consolas", 11, "bold")
     FONT_TITLE = ("Consolas", 16, "bold")
     FONT_SMALL = ("Consolas", 9)
+    FONT_BANNER = ("Consolas", 7)
 
     def __init__(self):
         """Initialize the GUI application and all core modules."""
@@ -90,15 +91,30 @@ class SoulScriptGUI:
 
     def _build_ui(self):
         """Construct the main application layout."""
-        # ── Top: Title Banner ──────────────────────────────
+        # ── Top: ASCII Art Title Banner ─────────────────────
         self.frame_top = tk.Frame(self.root, bg=self.BG_DARK)
         self.frame_top.pack(fill="x", padx=10, pady=(10, 0))
 
-        self.label_title = tk.Label(
-            self.frame_top, text="✦ SoulScript.exe ✦",
-            font=self.FONT_TITLE, fg=self.FG_GREEN, bg=self.BG_DARK,
+        banner_frame = tk.Frame(self.frame_top, bg=self.BG_DARK)
+        banner_frame.pack(fill="x")
+
+        banner_scroll = tk.Scrollbar(banner_frame, orient="horizontal")
+        banner_scroll.pack(side="bottom", fill="x")
+
+        self.text_banner = tk.Text(
+            banner_frame,
+            font=self.FONT_BANNER, fg=self.FG_GREEN, bg=self.BG_DARK,
+            height=9, wrap="none", bd=0, cursor="arrow",
+            selectbackground=self.BG_DARK, selectforeground=self.FG_GREEN,
+            xscrollcommand=banner_scroll.set,
         )
-        self.label_title.pack()
+        self.text_banner.pack(fill="x")
+        banner_scroll.config(command=self.text_banner.xview)
+
+        # Insert ASCII art and make read-only
+        banner_text = TITLE_BANNER.strip("\n")
+        self.text_banner.insert("1.0", banner_text)
+        self.text_banner.config(state="disabled")
 
         # ── Status Bar ─────────────────────────────────────
         self.frame_status = tk.Frame(self.root, bg=self.BG_PANEL, bd=1, relief="sunken")
