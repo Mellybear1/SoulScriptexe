@@ -135,7 +135,7 @@ class MageIdentity:
             f"║  Name:    {self.name:<38} ║",
             f"║  Title:   {self.title:<38} ║",
             f"║  Element: {self.element:<38} ║",
-            f"║  Familiar:{self.familiar:<38} ║",
+            f"║  Familiar: {self.familiar:<38} ║",
             f"║  Since:   {self.creation_date:<38} ║",
             bottom,
         ]
